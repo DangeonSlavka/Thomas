@@ -8,7 +8,7 @@ class DrawingPanel extends JFrame implements
     private final int BACKGROUND_WIDTH = 800;
     private final int BACKGROUND_HEIGHT = 800;
 
-    private final int TIMER_DELAY = 500;
+    private final int TIMER_DELAY = 1000;
     private final Timer timer = new Timer ( TIMER_DELAY ,
             this );
     private int ticksFromStart = 0;
@@ -25,11 +25,15 @@ class DrawingPanel extends JFrame implements
     public void paint ( Graphics g) {
         Graphics2D g2d = ( Graphics2D ) g;
 
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
         g2d . setColor ( Color . WHITE ) ;
         g2d . fillRect (0 , 0, BACKGROUND_WIDTH ,
                 BACKGROUND_HEIGHT ) ;
 
+        new Terrain().draw(g2d, 500, 500);
         new Train().draw(g2d, 10+ticksFromStart, 500);
+        new House().draw(g2d, 400, 400);
     }
 
     @Override
