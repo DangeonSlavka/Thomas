@@ -1,9 +1,9 @@
 import java.awt.*;
-public class Terrain {
+public class Terrain implements Drawable{
 
     public Terrain() {
     }
-
+    @Override
     public void draw(Graphics2D g2d, int x, int y){
             g2d.setColor(Color.pink);
             g2d.drawRect(x-500, y-480, 800, 450);

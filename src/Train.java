@@ -1,9 +1,10 @@
 import java.awt.*;
 
-public class Train {
+public class Train implements Drawable{
     public Train() {
 
     }
+    @Override
     public void draw(Graphics2D g2d, int x, int y){
 
         g2d.setColor(Color.BLUE);

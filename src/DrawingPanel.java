@@ -2,6 +2,7 @@ import javax . swing .*;
 import java . awt .*;
 import java . awt . event . ActionEvent ;
 import java . awt . event . ActionListener ;
+import java.util.ArrayList;
 
 class DrawingPanel extends JFrame implements
         ActionListener {
@@ -31,9 +32,25 @@ class DrawingPanel extends JFrame implements
         g2d . fillRect (0 , 0, BACKGROUND_WIDTH ,
                 BACKGROUND_HEIGHT ) ;
 
-        new Terrain().draw(g2d, 500, 500);
-        new Train().draw(g2d, 10+ticksFromStart, 500);
-        new House().draw(g2d, 400, 400);
+        ArrayList<Drawable> list = new ArrayList<>();
+        ArrayList<Coordinate> coordinates = new ArrayList<>();
+
+        list.add(new Terrain());
+        coordinates.add(new Coordinate(500, 500));
+
+        list.add(new Train());
+        coordinates.add(new Coordinate(10+ticksFromStart, 500));
+
+        list.add(new House());
+        coordinates.add(new Coordinate(400, 400));
+
+
+        int i = 0;
+        for(Drawable obj:list){
+            Coordinate tmp = coordinates.get(i++);
+            obj.draw(g2d, tmp.x, tmp.y);
+        }
+
     }
 
     @Override

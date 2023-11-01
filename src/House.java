@@ -1,8 +1,8 @@
 import java.awt.*;
-public class House {
+public class House implements Drawable{
     public House() {
     }
-
+    @Override
     public void draw(Graphics2D g2d, int x, int y) {
 
         g2d.setColor(Color.decode("#8f5a1e"));
